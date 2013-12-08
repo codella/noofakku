@@ -3,6 +3,7 @@ class Prev
     '<'
   end
 
-  def perform
+  def perform(processor, memory)
+    processor.pointer -= 1;
   end
 end
