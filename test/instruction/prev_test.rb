@@ -19,10 +19,14 @@ class PrevTest < Test::Unit::TestCase
       @instance = Prev.new
     end
 
+    should "should throw on nil processor" do
+      assert_raise { @instance.perform(nil, nil) }
+    end
+
     should "should increment memory pointer" do
       spy_processor = OpenStruct.new
       spy_processor.pointer = 0
-      @instance.perform(spy_processor, nil);
+      @instance.perform(spy_processor, nil)
       assert_equal -1, spy_processor.pointer
     end
 
