@@ -20,7 +20,7 @@ class PrevTest < Test::Unit::TestCase
     end
 
     should "should throw on nil processor" do
-      assert_raise { @instance.perform(nil, nil) }
+      assert_raise (RuntimeError) { @instance.perform(nil, nil) }
     end
 
     should "should increment memory pointer" do
