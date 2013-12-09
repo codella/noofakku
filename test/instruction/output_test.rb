@@ -8,7 +8,7 @@ class OutputTest < Test::Unit::TestCase
   context "Hook" do
 
     should "return '.' as hook character" do
-      assert_equal ".", Input.new.hook
+      assert_equal ".", Output.new.hook
     end
 
   end
@@ -16,7 +16,7 @@ class OutputTest < Test::Unit::TestCase
   context "Execution" do
 
     setup do
-      @instance = Input.new
+      @instance = Output.new
     end
 
     should "should throw on nil processor" do
