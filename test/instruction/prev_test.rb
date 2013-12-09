@@ -7,7 +7,7 @@ class PrevTest < Test::Unit::TestCase
 
   context "Hook" do
 
-    should "return '<'' as hook character" do
+    should "return '<' as hook character" do
       assert_equal "<", Prev.new.hook
     end
 
@@ -23,7 +23,7 @@ class PrevTest < Test::Unit::TestCase
       assert_raise (RuntimeError) { @instance.perform(nil, nil) }
     end
 
-    should "should increment memory pointer" do
+    should "should decrement memory pointer" do
       spy_processor = OpenStruct.new
       spy_processor.pointer = 0
       @instance.perform(spy_processor, nil)
