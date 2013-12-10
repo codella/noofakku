@@ -27,9 +27,8 @@ class InputTest < Test::Unit::TestCase
       assert_raise (RuntimeError) { @instance.perform(Object.new, nil, Object.new) }
     end
 
-    should "should decrement memory cell addressed by the data pointer" do
-      spy_processor = OpenStruct.new
-      spy_processor.data_pointer = 0
+    should "fill the memory cell addressed by the data pointer with the value of the yielded block" do
+      spy_processor = OpenStruct.new(data_pointer: 0)
       spy_memory = [0]
       @instance.perform(spy_processor, spy_memory, nil) { 42 }
       assert_equal 42, spy_memory[spy_processor.data_pointer]
