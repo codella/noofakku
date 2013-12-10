@@ -20,18 +20,18 @@ class OutputTest < Test::Unit::TestCase
     end
 
     should "should throw on nil processor" do
-      assert_raise (RuntimeError) { @instance.perform(nil, Object.new) }
+      assert_raise (RuntimeError) { @instance.perform(nil, Object.new, Object.new) }
     end
 
     should "should throw on nil memory" do
-      assert_raise (RuntimeError) { @instance.perform(Object.new, nil) }
+      assert_raise (RuntimeError) { @instance.perform(Object.new, nil, Object.new) }
     end
 
-    should "should decrement memory cell addressed by the pointer" do
+    should "should decrement memory cell addressed by the data pointer" do
       spy_processor = OpenStruct.new
-      spy_processor.pointer = 0
+      spy_processor.data_pointer = 0
       spy_memory = [42]
-      @instance.perform(spy_processor, spy_memory) { |value| assert_equal 42, value }
+      @instance.perform(spy_processor, spy_memory, nil) { |value| assert_equal 42, value }
     end
 
   end

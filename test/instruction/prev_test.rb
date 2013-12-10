@@ -20,14 +20,14 @@ class PrevTest < Test::Unit::TestCase
     end
 
     should "should throw on nil processor" do
-      assert_raise (RuntimeError) { @instance.perform(nil, nil) }
+      assert_raise (RuntimeError) { @instance.perform(nil, nil, Object.new) }
     end
 
-    should "should decrement memory pointer" do
+    should "should decrement memory data pointer" do
       spy_processor = OpenStruct.new
-      spy_processor.pointer = 0
-      @instance.perform(spy_processor, nil)
-      assert_equal -1, spy_processor.pointer
+      spy_processor.data_pointer = 0
+      @instance.perform(spy_processor, nil, nil)
+      assert_equal -1, spy_processor.data_pointer
     end
 
   end

@@ -3,8 +3,8 @@ class Next
     '>'
   end
 
-  def perform(processor, memory)
+  def perform(processor, memory, program)
     raise "processor cannot be nil" unless processor != nil
-    processor.pointer += 1;
+    processor.data_pointer += 1;
   end
 end
