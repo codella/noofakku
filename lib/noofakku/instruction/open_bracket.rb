@@ -7,7 +7,7 @@ class OpenBracket
     raise "processor cannot be nil" unless processor != nil
     raise "memory cannot be nil" unless memory != nil
     raise "program cannot be nil" unless program != nil
-    raise "ïnstruction pointer must point to a '#{hook}'" unless program[processor.instruction_pointer] == hook
+    raise "instruction pointer must point to a '#{hook}'" unless program[processor.instruction_pointer] == hook
     if memory[processor.data_pointer] != 0 then return end
     unclosed_brackets = 1
     pointer_to_current_instruction = processor.instruction_pointer
