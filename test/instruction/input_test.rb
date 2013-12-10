@@ -19,11 +19,11 @@ class InputTest < Test::Unit::TestCase
       @instance = Input.new
     end
 
-    should "should throw on nil processor" do
+    should "throw on nil processor" do
       assert_raise (RuntimeError) { @instance.perform(nil, Object.new, Object.new) }
     end
 
-    should "should throw on nil memory" do
+    should "throw on nil memory" do
       assert_raise (RuntimeError) { @instance.perform(Object.new, nil, Object.new) }
     end
 

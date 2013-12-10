@@ -19,17 +19,16 @@ class IncTest < Test::Unit::TestCase
       @instance = Inc.new
     end
 
-    should "should throw on nil processor" do
+    should "throw on nil processor" do
       assert_raise (RuntimeError) { @instance.perform(nil, Object.new, Object.new) }
     end
 
-    should "should throw on nil memory" do
+    should "throw on nil memory" do
       assert_raise (RuntimeError) { @instance.perform(Object.new, nil, Object.new) }
     end
 
-    should "should increment memory cell addressed by the data pointer" do
-      spy_processor = OpenStruct.new
-      spy_processor.data_pointer = 0
+    should "increment memory cell addressed by the data pointer" do
+      spy_processor = OpenStruct.new(data_pointer: 0)
       spy_memory = [0]
       @instance.perform(spy_processor, spy_memory, nil)
       assert_equal 1, spy_memory[spy_processor.data_pointer]
