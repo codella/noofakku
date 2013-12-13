@@ -3,35 +3,39 @@ require 'noofakku/instruction/inc'
 require 'shoulda'
 require 'ostruct'
 
-class IncTest < Test::Unit::TestCase
+module Noofakku
 
-  context "Hook" do
+  class IncTest < Test::Unit::TestCase
 
-    should "return '+' as hook character" do
-      assert_equal "+", Inc.new.hook
+    context "Hook" do
+
+      should "return '+' as hook character" do
+        assert_equal "+", Inc.new.hook
+      end
+
     end
 
-  end
+    context "Execution" do
 
-  context "Execution" do
+      setup do
+        @instance = Inc.new
+      end
 
-    setup do
-      @instance = Inc.new
-    end
+      should "throw on nil processor" do
+        assert_raise (RuntimeError) { @instance.perform(nil, Object.new, Object.new) }
+      end
 
-    should "throw on nil processor" do
-      assert_raise (RuntimeError) { @instance.perform(nil, Object.new, Object.new) }
-    end
+      should "throw on nil memory" do
+        assert_raise (RuntimeError) { @instance.perform(Object.new, nil, Object.new) }
+      end
 
-    should "throw on nil memory" do
-      assert_raise (RuntimeError) { @instance.perform(Object.new, nil, Object.new) }
-    end
+      should "increment memory cell addressed by the data pointer" do
+        spy_processor = OpenStruct.new(data_pointer: 0)
+        spy_memory = [0]
+        @instance.perform(spy_processor, spy_memory, nil)
+        assert_equal 1, spy_memory[spy_processor.data_pointer]
+      end
 
-    should "increment memory cell addressed by the data pointer" do
-      spy_processor = OpenStruct.new(data_pointer: 0)
-      spy_memory = [0]
-      @instance.perform(spy_processor, spy_memory, nil)
-      assert_equal 1, spy_memory[spy_processor.data_pointer]
     end
 
   end

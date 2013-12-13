@@ -3,30 +3,34 @@ require 'noofakku/instruction/prev'
 require 'shoulda'
 require 'ostruct'
 
-class PrevTest < Test::Unit::TestCase
+module Noofakku
 
-  context "Hook" do
+  class PrevTest < Test::Unit::TestCase
 
-    should "return '<' as hook character" do
-      assert_equal "<", Prev.new.hook
+    context "Hook" do
+
+      should "return '<' as hook character" do
+        assert_equal "<", Prev.new.hook
+      end
+
     end
 
-  end
+    context "Execution" do
 
-  context "Execution" do
+      setup do
+        @instance = Prev.new
+      end
 
-    setup do
-      @instance = Prev.new
-    end
+      should "throw on nil processor" do
+        assert_raise (RuntimeError) { @instance.perform(nil, nil, Object.new) }
+      end
 
-    should "throw on nil processor" do
-      assert_raise (RuntimeError) { @instance.perform(nil, nil, Object.new) }
-    end
+      should "decrement memory data pointer" do
+        spy_processor = OpenStruct.new(data_pointer: 0)
+        @instance.perform(spy_processor, nil, nil)
+        assert_equal -1, spy_processor.data_pointer
+      end
 
-    should "decrement memory data pointer" do
-      spy_processor = OpenStruct.new(data_pointer: 0)
-      @instance.perform(spy_processor, nil, nil)
-      assert_equal -1, spy_processor.data_pointer
     end
 
   end
