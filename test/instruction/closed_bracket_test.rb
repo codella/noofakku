@@ -7,18 +7,10 @@ module Noofakku
 
   class ClosedBracketTest < Test::Unit::TestCase
 
-    context "Hook" do
-
-      should "return ']' as hook character" do
-        assert_equal "]", ClosedBracket.new.hook
-      end
-
-    end
-
     context "Execution" do
 
       setup do
-        @instance = ClosedBracket.new
+        @instance = ClosedBracket.new("[", "]")
       end
 
       should "throw on nil processor" do

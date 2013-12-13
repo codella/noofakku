@@ -7,18 +7,10 @@ module Noofakku
 
   class OpenBracketTest < Test::Unit::TestCase
 
-    context "Hook" do
-
-      should "return '[' as hook character" do
-        assert_equal "[", OpenBracket.new.hook
-      end
-
-    end
-
     context "Execution" do
 
       setup do
-        @instance = OpenBracket.new
+        @instance = OpenBracket.new("[", "]")
       end
 
       should "throw on nil processor" do

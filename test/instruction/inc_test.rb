@@ -7,14 +7,6 @@ module Noofakku
 
   class IncTest < Test::Unit::TestCase
 
-    context "Hook" do
-
-      should "return '+' as hook character" do
-        assert_equal "+", Inc.new.hook
-      end
-
-    end
-
     context "Execution" do
 
       setup do

@@ -1,8 +1,6 @@
 module Noofakku
+
   class Output
-    def hook
-      '.'
-    end
 
     def perform(processor, memory, program, input, output)
       raise "processor cannot be nil" unless processor != nil
@@ -10,5 +8,7 @@ module Noofakku
       raise "output cannot be nil" unless output != nil
       output.call(memory[processor.data_pointer])
     end
+
   end
+
 end

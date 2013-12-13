@@ -7,14 +7,6 @@ module Noofakku
 
   class DecTest < Test::Unit::TestCase
 
-    context "Hook" do
-
-      should "return '-' as hook character" do
-        assert_equal "-", Dec.new.hook
-      end
-
-    end
-
     context "Execution" do
 
       setup do

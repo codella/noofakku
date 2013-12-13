@@ -7,14 +7,6 @@ module Noofakku
 
   class OutputTest < Test::Unit::TestCase
 
-    context "Hook" do
-
-      should "return '.' as hook character" do
-        assert_equal ".", Output.new.hook
-      end
-
-    end
-
     context "Execution" do
 
       setup do
