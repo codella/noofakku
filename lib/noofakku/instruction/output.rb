@@ -4,11 +4,11 @@ module Noofakku
       '.'
     end
 
-    def perform(processor, memory, program)
-    	raise "a block returning a single character string must be given" unless block_given?
+    def perform(processor, memory, program, input, output)
       raise "processor cannot be nil" unless processor != nil
       raise "memory cannot be nil" unless memory != nil
-      yield memory[processor.data_pointer]
+      raise "output cannot be nil" unless output != nil
+      output.call(memory[processor.data_pointer])
     end
   end
 end

@@ -22,31 +22,31 @@ module Noofakku
       end
 
       should "throw on nil processor" do
-        assert_raise (RuntimeError) { @instance.perform(nil, Object.new, Object.new) }
+        assert_raise (RuntimeError) { @instance.perform(nil, Object.new, Object.new, Object.new, Object.new) }
       end
 
       should "throw on nil memory" do
-        assert_raise (RuntimeError) { @instance.perform(Object.new, nil, Object.new) }
+        assert_raise (RuntimeError) { @instance.perform(Object.new, nil, Object.new, Object.new, Object.new) }
       end
 
       should "throw on nil program" do
-        assert_raise (RuntimeError) { @instance.perform(Object.new, Object.new, nil) }
+        assert_raise (RuntimeError) { @instance.perform(Object.new, Object.new, nil, Object.new, Object.new) }
       end
 
       should "throw if instruction pointer is not pointing to an open bracket" do
         spy_processor = OpenStruct.new(instruction_pointer: 0)
-        assert_raise (RuntimeError) { @instance.perform(spy_processor, Object.new, "_") }
+        assert_raise (RuntimeError) { @instance.perform(spy_processor, Object.new, "_", nil, nil) }
       end
 
       should "leave the instruction pointer as is if data pointer points to a cell which value is not zero" do
         spy_processor = OpenStruct.new(instruction_pointer: 0, data_pointer: 0)
-        @instance.perform(spy_processor, [42], "[_]_")
+        @instance.perform(spy_processor, [42], "[_]_", nil, nil)
         assert_equal 0, spy_processor.instruction_pointer
       end
 
       should "change the instruction pointer in order to point to the matching ']' if data pointer points to a cell which value is zero" do
         spy_processor = OpenStruct.new(instruction_pointer: 0, data_pointer: 0)
-        @instance.perform(spy_processor, [0], "[_]_")
+        @instance.perform(spy_processor, [0], "[_]_", nil, nil)
         assert_equal 2, spy_processor.instruction_pointer
       end
 
