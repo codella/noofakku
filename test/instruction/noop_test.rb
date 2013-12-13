@@ -33,7 +33,7 @@ module Noofakku
         rescue
           touched = true
         end
-        assert_false touched
+        assert (not touched)
       end
 
       should "leave alone the program" do
@@ -44,19 +44,19 @@ module Noofakku
         rescue
           touched = true
         end
-        assert_false touched
+        assert (not touched)
       end
 
       should "leave alone the input lambda" do
         invoked = false
         @instance.perform(Object.new, [], [], ->{ invoked = true }, ->value{})
-        assert_false invoked
+        assert (not invoked)
       end
 
       should "leave alone the output lambda" do
         invoked = false
         @instance.perform(Object.new, [], [], ->{}, ->value{ invoked = true })
-        assert_false invoked
+        assert (not invoked)
       end
 
     end

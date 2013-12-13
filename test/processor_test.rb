@@ -38,7 +38,7 @@ module Noofakku
         input = -> {}
         output = ->value {}
         @instance.run('x', [], input, output)
-        assert_true @spy_instruction.invoked
+        assert @spy_instruction.invoked
       end
 
     end
