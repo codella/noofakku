@@ -1,7 +1,6 @@
 require 'test/unit'
 require 'noofakku'
 require 'shoulda'
-require 'ostruct'
 
 module Noofakku
 
