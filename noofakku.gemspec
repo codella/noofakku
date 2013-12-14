@@ -6,7 +6,15 @@ Gem::Specification.new do |s|
   s.description = "A simple brainfuck implementation"
   s.authors     = ["Mauro Codella"]
   s.email       = 'mauro.codella@gmail.com'
-  s.files       = ["lib/noofakku.rb"]
   s.homepage    = 'http://github.com/mcodella/noofakku'
   s.license     = 'MIT'
+  
+  s.files         = `git ls-files`.split("\n")
+  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  s.require_paths = ["lib"]
+  
+  s.add_development_dependency "rake"
+  s.add_development_dependency "shoulda"
+  s.add_development_dependency "coveralls"
 end
