@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    noofakku (0.0.1)
+    noofakku (0.0.4)
 
 GEM
   remote: https://rubygems.org/
