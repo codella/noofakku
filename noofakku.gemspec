@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'noofakku'
-  s.version     = '0.0.1'
+  s.version     = `git tag`.split("\n")[0]
   s.date        = '2013-12-08'
   s.summary     = "Noofakku"
   s.description = "A simple brainfuck implementation"
