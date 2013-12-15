@@ -43,3 +43,5 @@ Noofakku::VM.start(program, input, output)
 
 p produced #=> [2, 3, 5, 6]
 ```
+
+Other usage samples can be found in https://github.com/mcodella/noofakku/blob/master/test/noofakku_smoke_test.rb
