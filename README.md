@@ -17,9 +17,12 @@ require 'noofakku'
 input = -> { 0 }
 produced = ''
 output = ->value { produced << value }
+
+# will print "Hello World!\n"
 program = '++++++++++[>+++++++>++++++++++>+++>'
 program << '+<<<<-]>++.>+.+++++++..+++.>++.<<++'
 program << '+++++++++++++.>.+++.------.--------.>+.>.'
+
 Noofakku::VM.start(program, input, output)
 
 p produced #=> "Hello World!\n"
@@ -28,11 +31,14 @@ p produced #=> "Hello World!\n"
 ```ruby
 require 'noofakku'
 
-program = '>>,[>>,]<< [[-<+<]>[>[>>]<[.[-]<[[>>+<<-]<]>>]>]<<]'
 to_be_sorted = [5, 3, 2, 6, 0].each
 input = -> { to_be_sorted.next }
 produced = []
 output = ->value { produced << value }
+
+# will sort the zero-ended array in input
+program = '>>,[>>,]<< [[-<+<]>[>[>>]<[.[-]<[[>>+<<-]<]>>]>]<<]'
+
 Noofakku::VM.start(program, input, output)
 
 p produced #=> [2, 3, 5, 6]
