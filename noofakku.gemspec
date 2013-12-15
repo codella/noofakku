@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'noofakku'
   s.version     = `git describe --tags --abbrev=0`.split("\n")[0]
-  s.date        = '2013-12-08'
+  s.date        = `date +"%Y-%m-%d"`
   s.summary     = "Noofakku"
   s.description = "A simple brainfuck implementation"
   s.authors     = ["Mauro Codella"]
