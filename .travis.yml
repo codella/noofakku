@@ -4,3 +4,5 @@ deploy:
     - 2.0.0
   provider: rubygems
   api_key: "4fa314a48d7f66052bf71f2f97fc543c"
+on:
+  branch: master
