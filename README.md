@@ -1,6 +1,4 @@
-<img src="https://github.com/mcodella/noofakku/blob/master/resources/icon.png" height='48'>
-
-Noofakku Status
+<img src="https://raw.github.com/mcodella/noofakku/master/resources/icon.png" height='64'>  Noofakku Status
 ===============
 <a href="http://badge.fury.io/rb/noofakku"><img src="https://badge.fury.io/rb/noofakku@2x.png" alt="Gem Version" height='18'></a>
 <br/>
