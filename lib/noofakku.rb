@@ -6,6 +6,7 @@ require 'noofakku/instruction/prev'
 require 'noofakku/instruction/next'
 require 'noofakku/instruction/input'
 require 'noofakku/instruction/output'
+require 'noofakku/instruction/noop'
 require 'noofakku/processor'
 
 module Noofakku
