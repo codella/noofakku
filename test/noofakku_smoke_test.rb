@@ -18,8 +18,8 @@ module Noofakku
       end
 
       should 'produce Fibonacci numbers in output' do
-      	program = '+.>+.>>>++++++++++[<<<[->>+<<]>>[-<+<+>>]<<<[->+<]>>[-<<+>>]<.>>>-]'
-      	input = -> { 0 }
+        program = '+.>+.>>>++++++++++[<<<[->>+<<]>>[-<+<+>>]<<<[->+<]>>[-<<+>>]<.>>>-]'
+        input = -> { 0 }
         produced = []
         output = ->value { produced << value }
         Noofakku::VM.start(program, input, output)
@@ -27,9 +27,9 @@ module Noofakku
       end
 
       should 'order numbers in input' do
-      	program = '>>,[>>,]<< [[-<+<]>[>[>>]<[.[-]<[[>>+<<-]<]>>]>]<<]'
-      	to_be_sorted = [5, 3, 2, 6, 0].each
-      	input = -> { to_be_sorted.next }
+        program = '>>,[>>,]<< [[-<+<]>[>[>>]<[.[-]<[[>>+<<-]<]>>]>]<<]'
+        to_be_sorted = [5, 3, 2, 6, 0].each
+        input = -> { to_be_sorted.next }
 	produced = []
 	output = ->value { produced << value }
         Noofakku::VM.start(program, input, output)
