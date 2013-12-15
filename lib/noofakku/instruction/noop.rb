@@ -3,7 +3,7 @@ module Noofakku
   class Noop
 
     def perform(processor, memory, program, input, output)
-    	# lazyness is prevailing over me... :(
+    	# lazyness is prevailing on me... :(
     end
 
   end
