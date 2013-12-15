@@ -1,5 +1,4 @@
-require 'noofakku/instruction/open_bracket'
-require 'noofakku/instruction/closed_bracket'
+require 'noofakku/instruction/brackets'
 require 'noofakku/instruction/inc'
 require 'noofakku/instruction/dec'
 require 'noofakku/instruction/prev'
@@ -12,6 +11,7 @@ require 'noofakku/processor'
 module Noofakku
   class VM
     def self.start(program, input, output)
+      brackets = Brackets.new('[', ']')
     	processor = Processor.new(Hash.new(Noop.new).merge!({
       	'>' => Next.new,
       	'<' => Prev.new,
@@ -19,8 +19,8 @@ module Noofakku
       	'-' => Dec.new,
       	'.' => Output.new,
       	',' => Input.new,
-      	'[' => OpenBracket.new('[', ']'),
-      	']' => ClosedBracket.new('[', ']')
+      	'[' => brackets,
+      	']' => brackets
       }))
       processor.run(program.clone.freeze, Array.new(30_000, 0), input, output)
     end
