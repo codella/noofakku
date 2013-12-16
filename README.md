@@ -8,8 +8,8 @@
 <br/>
 <a href='https://coveralls.io/r/mcodella/noofakku'><img src='https://coveralls.io/repos/mcodella/noofakku/badge.png' alt='Coverage Status' height='18'/></a>
 
-Usage Sample
-============
+Usage Samples
+=============
 
 ```ruby
 require 'noofakku'
