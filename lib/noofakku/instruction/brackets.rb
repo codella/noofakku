@@ -16,14 +16,19 @@ module Noofakku
       if (value_at_data_pointer != 0 and this_bracket == @open) or (value_at_data_pointer == 0 and this_bracket == @closed)
         return
       end
+      jump(processor, program, this_bracket, other_bracket)
+    end
+
+    private
+    def jump(processor, program, this_bracket, other_bracket)
       unmatched_brackets = 1
       pointer_to_current_instruction = processor.instruction_pointer
       direction = this_bracket == @open ? 1 : -1
       until unmatched_brackets == 0
-      	processor.instruction_pointer += direction
-      	if not (0...program.length).include? processor.instruction_pointer then raise "no matching bracket for that at #{pointer_to_current_instruction}"
-      	elsif program[processor.instruction_pointer] == this_bracket then unmatched_brackets += 1
-      	elsif program[processor.instruction_pointer] == other_bracket then unmatched_brackets -= 1
+        processor.instruction_pointer += direction
+        if not (0...program.length).include? processor.instruction_pointer then raise "no matching bracket for that at #{pointer_to_current_instruction}"
+        elsif program[processor.instruction_pointer] == this_bracket then unmatched_brackets += 1
+        elsif program[processor.instruction_pointer] == other_bracket then unmatched_brackets -= 1
         end
       end
     end
