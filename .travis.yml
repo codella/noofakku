@@ -1,5 +1,10 @@
+---
 deploy:
   rvm:
-    - 2.0.0
+  - 2.0.0
   provider: rubygems
-  api_key: "4fa314a48d7f66052bf71f2f97fc543c"
+  api_key:
+  - secure: |-
+      cwPgL5ou+hCUw2FBJjdSuVO8K2jt5yRspAnY6R0+NwXbLl0V4YuGRhKJu4Sk
+      d10GGeoMq/VbTeNWsb3hDXHlTP+3GYF0bOzx8l73uCmhtZNSr2kkBsOXm9+0
+      5Jx3dC4XF2FUG6UiA99a+dHACKCUKLwk8Sz3poNTFxW8HrIEdH0=
